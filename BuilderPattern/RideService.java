@@ -10,14 +10,21 @@ public class RideService {
                 .setRiderId("123")
                 .build();
 
-        Ride ride2 = rideBuilder
+        Ride ride2 = new RideBuilder()
                 .setPickup("C")
                 .setDrop("D")
                 .setRiderId("456")
-                .setIsPoolRide(true) // added this line to set isPoolRide to true
+                .setIsPoolRide(true)
                 .build();
+
+        Ride ride3 = new RideBuilder()
+                .setPickup("E")
+                .setDrop("F")
+                .setRiderId("789")
+                .build(); // still a pool ride
 
         System.out.println(ride1);
         System.out.println(ride2);
+        System.out.println(ride3);
     }
 }
