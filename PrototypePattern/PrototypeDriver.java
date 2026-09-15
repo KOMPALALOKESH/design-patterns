@@ -4,6 +4,8 @@ import java.util.*;
 
 public class PrototypeDriver {
     public static void main(String[] args) {
+        // Amazon Reorder using prototype pattern 
+
         Order order1 = new Order(
             "1",
             new ArrayList<>(List.of("item1", "item2")),
