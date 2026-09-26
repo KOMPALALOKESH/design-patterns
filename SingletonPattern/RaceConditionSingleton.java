@@ -10,11 +10,15 @@ public class RaceConditionSingleton {
 
     public static RaceConditionSingleton getInstance() {
         if (instance == null) {
-            try {
-                Thread.sleep(100);
-            } catch(Exception e) {}
+            synchronized (RaceConditionSingleton.class) {
+                if (instance == null) {
+                    try {
+                        Thread.sleep(100);
+                    } catch(Exception e) {}
 
-            instance = new RaceConditionSingleton();
+                    instance = new RaceConditionSingleton();
+                }
+            }
         }
         return instance;
     }
