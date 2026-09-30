@@ -2,7 +2,7 @@ package CommandPattern.Command;
 
 import CommandPattern.Document;
 
-public class OpenCommand {
+public class OpenCommand implements ICommand {
 
     Document document;
 

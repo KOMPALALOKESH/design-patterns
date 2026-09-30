@@ -7,14 +7,26 @@ public class Main {
 
     public static void main(String[] args) {
         Document document = new Document();
-        SaveCommand saveCommand = new SaveCommand(document);
+
+        SaveCommand saveCommand = new SaveCommand(document, "Hello World");
         OpenCommand openCommand = new OpenCommand(document);
 
-        saveCommand.execute("Hello World");
-        openCommand.execute();
+        Invoker invoker = new Invoker();
 
-        saveCommand.execute("Hello World modified");
-        openCommand.execute();
+        invoker.setCommand(saveCommand);
+        invoker.executeCommand();
+        
+        invoker.setCommand(openCommand);
+        invoker.executeCommand();
+
+        SaveCommand saveCommand2 = new SaveCommand(document, "Hello World modified");
+        invoker.setCommand(saveCommand2);
+        invoker.executeCommand();
+
+        invoker.setCommand(openCommand);
+        invoker.executeCommand();
+
+        /* Even when a new command is implemented, the invoker can execute it without knowing the details */
     }
     
 }
